@@ -1,0 +1,12 @@
+*.exe
+*.ilk
+*.pdb
+*.tlog
+*.log
+*.obj
+*.idb
+*.pdb
+*.vcxproj
+*.filters
+*.user
+*.bak
