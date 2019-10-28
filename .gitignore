@@ -5,8 +5,10 @@
 *.log
 *.obj
 *.idb
-*.pdb
 *.vcxproj
 *.filters
 *.user
+*.db
+*.ipch
+*.sln
 *.bak
