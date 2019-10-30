@@ -12,3 +12,9 @@
 *.ipch
 *.sln
 *.bak
+*.xml
+*.iml
+CMakeLists.txt
+*/cmake-build-debug/*
+*/.diea/*
+
