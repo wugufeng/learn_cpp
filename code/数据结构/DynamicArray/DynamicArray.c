@@ -20,17 +20,17 @@ struct DynamicArray *Init_DynamicArray(int capacity)
 	return arr;
 }
 //插入元素
-void Insert_DynamicArray(struct DynamicArray *arr, int pos, void *data)
-{
+int Insert_DynamicArray(struct DynamicArray *arr, int pos, void *data) {
+    // int类型可以标记是否插入成功，0表示成功，-1表示失败
 
 	if (NULL == arr)
 	{
-		return;
+		return -1;
 	}
 
 	if (NULL == data)
 	{
-		return;
+		return -1;
 	}
 
 	if (pos < 0 || pos > arr->size)
@@ -46,6 +46,9 @@ void Insert_DynamicArray(struct DynamicArray *arr, int pos, void *data)
 		int newcapacity = arr->capacity * 2;
 		void **newspace = malloc(sizeof(void *)* newcapacity);
 
+		if(NULL == newspace) {  // 开辟空间失败
+		    return -1;
+		}
 		//2. 将原来空间的数据拷贝到新空间
 		memcpy(newspace, arr->addr, sizeof(void *)* arr->capacity);
 
@@ -68,6 +71,7 @@ void Insert_DynamicArray(struct DynamicArray *arr, int pos, void *data)
 	//将新元素插入到pos位置
 	arr->addr[pos] = data;
 	arr->size++;
+	return 0;
 }
 //遍历
 void Foreach_DynamicArray(struct DynamicArray *arr, void(*_callback)(void *))
